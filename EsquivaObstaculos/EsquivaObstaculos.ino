@@ -26,9 +26,12 @@ void loop() {
 uS = sonar.ping_median();
 distancia = (uS/ US_ROUNDTRIP_CM);
 if (distancia < 10) {
+  servoD.write(180);
+  servoI.write(0);
+  delay (500);
   servoD.write(180);    //Gira hasta que la distancia sea de más de 10cm
   servoI.write(180);
-  } else if (distancia >10) {
+  } else if (distancia >12) {
     servoD.write(0);    //Para adelante
     servoI.write(180);
   }
